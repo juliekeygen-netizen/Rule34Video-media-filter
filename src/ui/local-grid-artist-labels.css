@@ -1,0 +1,48 @@
+[data-r34mf-root="subscriptions"] .r34mf-local-artists {
+  position: absolute;
+  z-index: 2;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  overflow: hidden;
+  pointer-events: none;
+  --r34mf-artist-label-font-size: 11px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-local-artists.is-size-small {
+  --r34mf-artist-label-font-size: 10px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-local-artists.is-size-medium {
+  --r34mf-artist-label-font-size: 11px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-local-artists.is-size-big {
+  --r34mf-artist-label-font-size: 13px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-local-artist,
+[data-r34mf-root="subscriptions"] .r34mf-local-artist-more {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: rgba(20, 27, 32, .85);
+  color: #fff;
+  font-size: var(--r34mf-artist-label-font-size);
+  font-weight: 700;
+  line-height: 1.1;
+  box-sizing: border-box;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-local-artist-more {
+  flex: 0 0 auto;
+}

@@ -1,0 +1,25 @@
+.r34mf-seen-control .r34mf-seen-button {
+  white-space: nowrap;
+}
+
+.r34mf-seen-control .r34mf-seen-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.r34mf-seen-control .r34mf-seen-icon circle,
+.r34mf-seen-control .r34mf-seen-icon path {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+.r34mf-seen-control .r34mf-seen-button[aria-busy="true"] {
+  pointer-events: none;
+  opacity: .68;
+}

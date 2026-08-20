@@ -1,0 +1,157 @@
+/* Focused Phase A browser-polish overrides.
+   Loaded after filters.css so these corrections do not disturb Advanced work. */
+
+[data-r34mf-root="subscriptions"] .r34mf-tool-layer {
+  width: var(--r34mf-filter-popover-width) !important;
+  min-width: 0 !important;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filters-surface {
+  width: 100%;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-row {
+  grid-template-columns: 23px minmax(0, 1fr);
+  padding: 0 6px 0 0;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-checkbox-cell {
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-row-main {
+  padding-left: 7px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-toggle {
+  margin-left: 0;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-launch {
+  width: 100%;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-sort-surface {
+  width: var(--r34mf-sort-popover-width) !important;
+  min-width: 0 !important;
+  max-width: calc(100vw - 16px) !important;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-sort-surface button {
+  width: 100%;
+  min-width: 0 !important;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-modal:not(.r34mf-modal-presets):not(.r34mf-modal-advanced) .r34mf-modal-footer {
+  justify-content: flex-end;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 4px 8px 4px 9px;
+  border-color: rgba(255,255,255,.055);
+  background: var(--r34mf-input);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-row::before {
+  content: "";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,.26);
+  border-radius: 3px;
+  background: #21282e;
+  color: #fff;
+  font: 700 10px/1 var(--r34mf-font);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-row.is-active {
+  border-color: rgba(255,255,255,.055);
+  background: var(--r34mf-input);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-row.is-active::before {
+  content: "✓";
+  border-color: var(--r34mf-accent-bright);
+  background: var(--r34mf-accent-bright);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-select {
+  grid-column: 2;
+  min-width: 0;
+  width: 100%;
+  min-height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  text-align: left;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-select:hover,
+[data-r34mf-root="subscriptions"] .r34mf-preset-select:focus-visible,
+[data-r34mf-root="subscriptions"] .r34mf-preset-row:hover,
+[data-r34mf-root="subscriptions"] .r34mf-preset-row.is-active:hover {
+  background: var(--r34mf-input);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-select small {
+  display: none !important;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-menu-toggle {
+  grid-column: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: end;
+  align-self: center;
+  width: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  border-radius: 7px;
+  background: transparent;
+  line-height: 1;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-menu-toggle:hover,
+[data-r34mf-root="subscriptions"] .r34mf-preset-menu-toggle:focus-visible {
+  background: rgba(255,255,255,.055) !important;
+  color: #fff;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-menu {
+  position: fixed;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 138px;
+  gap: 2px;
+  margin: 0 !important;
+  padding: 5px;
+  border: 1px solid rgba(255,255,255,.085);
+  border-radius: 8px;
+  background: #30373d;
+  box-shadow: 0 10px 24px rgba(0,0,0,.42);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-menu .r34mf-filter-button {
+  width: 100%;
+  justify-content: flex-start;
+  min-height: 30px;
+  padding: 0 9px;
+  text-align: left;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-preset-inline-form {
+  grid-column: 1 / -1;
+}

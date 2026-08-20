@@ -1,0 +1,23 @@
+{
+  "name": "rule34video-media-filter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cross-browser Manifest V3 extension for a local, filterable Rule34Video subscription catalogue.",
+  "scripts": {
+    "check": "node scripts/check.mjs && node scripts/build.mjs --check",
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "build:chrome": "node scripts/build.mjs --browser=chrome",
+    "build:firefox": "node scripts/build.mjs --browser=firefox",
+    "verify:release-parity": "node scripts/verify-release-parity.mjs",
+    "lint:firefox": "npm run build:firefox && npx --yes web-ext@10.5.0 lint --source-dir dist/firefox",
+    "run:firefox": "npm run build:firefox && npx --yes web-ext@10.5.0 run --source-dir dist/firefox",
+    "package:firefox": "npm run build:firefox && npx --yes web-ext@10.5.0 build --source-dir dist/firefox --artifacts-dir web-ext-artifacts --overwrite-dest"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "linkedom": "^0.18.13"
+  }
+}

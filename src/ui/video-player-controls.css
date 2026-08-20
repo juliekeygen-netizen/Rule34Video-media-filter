@@ -1,0 +1,235 @@
+#kt_player .r34mf-player-skip-controls,
+.kt-player .r34mf-player-skip-controls,
+.video-holder .r34mf-player-skip-controls,
+.video-container .r34mf-player-skip-controls,
+.r34mf-player-skip-controls {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  gap: 1px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 26px !important;
+  min-height: 26px !important;
+  max-height: 26px !important;
+  margin: 0 2px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  vertical-align: middle !important;
+  overflow: visible !important;
+}
+
+/* Rule34Video's current youtube.css skin lays the lower-left controls out as
+   adjacent 40px-wide floated cells. Joining that native float chain is what makes
+   DOM order (Play -> Back -> Forward -> Volume -> Time) become visual order too. */
+#kt_player .fp-controls > .r34mf-player-skip-controls.is-flowplayer,
+.kt-player .fp-controls > .r34mf-player-skip-controls.is-flowplayer {
+  box-sizing: border-box !important;
+  display: flex !important;
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  float: left !important;
+  clear: none !important;
+  transform: none !important;
+  flex: 0 0 80px !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  align-self: auto !important;
+  gap: 0 !important;
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  margin: 5px 0 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  vertical-align: top !important;
+  overflow: visible !important;
+  z-index: 3 !important;
+}
+
+#kt_player .r34mf-player-skip-button,
+.kt-player .r34mf-player-skip-button,
+.video-holder .r34mf-player-skip-button,
+.video-container .r34mf-player-skip-button,
+.r34mf-player-skip-button {
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 26px !important;
+  width: 26px !important;
+  min-width: 26px !important;
+  max-width: 26px !important;
+  height: 26px !important;
+  min-height: 26px !important;
+  max-height: 26px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  opacity: .94 !important;
+  cursor: pointer !important;
+  line-height: 0 !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  touch-action: manipulation !important;
+}
+
+#kt_player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button,
+.kt-player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button {
+  flex: 0 0 40px !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+}
+
+.r34mf-player-skip-button:hover,
+.r34mf-player-skip-button:focus-visible {
+  opacity: 1 !important;
+  background: rgba(255,255,255,.10) !important;
+}
+
+#kt_player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button:hover,
+.kt-player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button:hover {
+  background: transparent !important;
+}
+
+.r34mf-player-skip-button:focus-visible {
+  outline: 2px solid rgba(255,255,255,.86) !important;
+  outline-offset: -2px !important;
+}
+
+.r34mf-player-skip-button svg {
+  display: block !important;
+  width: 19px !important;
+  height: 19px !important;
+  overflow: visible !important;
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+#kt_player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button svg,
+.kt-player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.r34mf-player-skip-button .r34mf-player-skip-ring {
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+.r34mf-player-skip-button text {
+  fill: currentColor !important;
+  stroke: none !important;
+  font: 700 8px/1 Arial, sans-serif !important;
+  letter-spacing: -.3px !important;
+}
+
+#kt_player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button text,
+.kt-player .fp-controls > .r34mf-player-skip-controls.is-flowplayer .r34mf-player-skip-button text {
+  font-size: 9px !important;
+}
+
+/* Mirrors Rule34Video's own ktseek feedback geometry/animation while keeping an
+   extension-owned class contract. This also fills the site's missing fullscreen
+   double-click feedback without taking ownership of the native seek itself. */
+#kt_player .r34mf-player-skip-feedback,
+.kt-player .r34mf-player-skip-feedback,
+.r34mf-player-skip-feedback {
+  box-sizing: border-box !important;
+  position: absolute !important;
+  top: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 64px !important;
+  padding: 14px 16px !important;
+  color: #fff !important;
+  background: rgba(0,0,0,.55) !important;
+  border-radius: 14px !important;
+  font-family: Roboto, Arial, Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  pointer-events: none !important;
+  z-index: 50 !important;
+  opacity: 0 !important;
+  transform: translateY(-50%) scale(.85) !important;
+  transition: opacity .15s ease, transform .15s ease !important;
+}
+
+.r34mf-player-skip-feedback.is-back {
+  left: 11% !important;
+}
+
+.r34mf-player-skip-feedback.is-forward {
+  right: 11% !important;
+}
+
+.r34mf-player-skip-feedback.is-showing {
+  opacity: 1 !important;
+  transform: translateY(-50%) scale(1) !important;
+}
+
+.r34mf-player-skip-feedback-icon {
+  margin-bottom: 6px !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  letter-spacing: -2px !important;
+  white-space: nowrap !important;
+}
+
+.r34mf-player-skip-feedback-label {
+  font: inherit !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 700px) {
+  /* Keep the real Flowplayer controls at native 40x36 geometry even on narrow
+     screens; only the conservative non-Flowplayer fallback remains compact. */
+  .r34mf-player-skip-controls:not(.is-flowplayer) {
+    gap: 1px !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+    margin-inline: 1px !important;
+  }
+
+  .r34mf-player-skip-controls:not(.is-flowplayer) .r34mf-player-skip-button {
+    flex-basis: 24px !important;
+    width: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    height: 24px !important;
+    min-height: 24px !important;
+    max-height: 24px !important;
+  }
+
+  .r34mf-player-skip-controls:not(.is-flowplayer) .r34mf-player-skip-button svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}

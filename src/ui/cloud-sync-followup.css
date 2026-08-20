@@ -1,0 +1,10 @@
+/* Keep top-level Settings sections on the same vertical rhythm.
+   settings.css has `.r34mf-settings-section:first-of-type { margin-top: 0; }`.
+   Cloud sync is dynamically inserted as a <section> after non-section backup cards,
+   so it can accidentally count as the first section-of-type and lose its intended gap.
+   Use the standard 22px section gap rather than a Cloud-specific larger value, and
+   bring the adjacent Danger zone onto the same rhythm as well. */
+.r34mf-settings-section.r34mf-settings-cloud-section,
+.r34mf-settings-danger {
+  margin-top: 22px;
+}

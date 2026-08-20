@@ -1,0 +1,242 @@
+/* Final phone-layout correction layer.
+   This is intentionally loaded after mobile.css so mobile rules can correct older
+   desktop-responsive assumptions without changing the established desktop UI. */
+@media (max-width: 760px) {
+  /* The modal layer is a grid. Stretching grid items made compact Date/Duration
+     editors fill almost the entire viewport and left a large fake empty footer. */
+  [data-r34mf-root="subscriptions"] .r34mf-modal-layer {
+    place-items: center !important;
+    align-items: center !important;
+    justify-items: center !important;
+    padding: 6px !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-modal {
+    align-self: center;
+    justify-self: center;
+    height: auto !important;
+    max-height: calc(100dvh - 12px) !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-modal:not(.r34mf-modal-advanced) .r34mf-modal-content {
+    flex: 0 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  /* Keep Advanced to one predictable scroll owner. mobile.css previously made
+     both the editor and its body scrollable, which can create dead/floating space. */
+  [data-r34mf-root="subscriptions"] .r34mf-modal-advanced .r34mf-advanced-editor {
+    min-height: 0;
+    max-height: calc(100dvh - 150px);
+    overflow: hidden !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-modal-advanced .r34mf-advanced-modal-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: calc(100dvh - 150px);
+    overflow-x: hidden;
+    overflow-y: auto !important;
+  }
+
+  /* On phones the narrow desktop Filters trigger width is not useful. Give the
+     parent menu almost the complete extension width and use two compact columns. */
+  [data-r34mf-root="subscriptions"] > .r34mf-tool-layer {
+    left: 6px !important;
+    width: calc(100% - 12px) !important;
+    max-width: calc(100vw - 12px) !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filters-surface {
+    width: 100% !important;
+    max-height: min(72dvh, 560px) !important;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filter-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 0 8px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filter-column {
+    min-width: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filter-column .r34mf-filter-section {
+    margin-top: 10px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filter-column .r34mf-filter-row {
+    min-height: 31px;
+    margin: 3px 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filter-column .r34mf-filter-row-main {
+    min-height: 29px;
+    padding-left: 5px;
+    font-size: 10.5px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filter-column .r34mf-filter-row-label {
+    min-width: 0;
+  }
+
+  /* Advanced rules use their complete card width below the compact first row.
+     The prior phone grid left three desktop columns blank before every editor. */
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-rule-primary {
+    grid-template-columns: 22px 22px minmax(62px, 78px) minmax(0, 1fr) 30px !important;
+    grid-template-areas:
+      "drag check logic field menu"
+      "polarity polarity polarity polarity polarity"
+      "condition condition condition condition condition"
+      "value value value value value" !important;
+    column-gap: 7px;
+    row-gap: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-drag { grid-area: drag !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-check { grid-area: check !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-logic { grid-area: logic !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-field { grid-area: field !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-menu-toggle { grid-area: menu !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-polarity { grid-area: polarity !important; margin-top: 1px; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-condition { grid-area: condition !important; margin-top: 0; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-value,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.has-wide-value .r34mf-advanced-value,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-duplicates .r34mf-advanced-value {
+    grid-area: value !important;
+    grid-column: auto !important;
+    margin-top: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-polarity > *,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-condition > *,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-value > * {
+    width: 100%;
+    min-width: 0 !important;
+    max-width: 100%;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-polarity .r34mf-filter-select {
+    min-width: 0 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-rule-secondary {
+    display: block !important;
+    padding-left: 0 !important;
+    margin-top: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-rule-secondary .r34mf-text-options {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-rule-error {
+    margin: 7px 0 0 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-range,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-relative,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-date-range {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-date-range .r34mf-date-control {
+    flex: 1 1 150px;
+    min-width: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-relative .r34mf-filter-input,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-relative .r34mf-filter-select {
+    flex: 1 1 110px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-header {
+    grid-template-columns: 22px 22px minmax(62px, 78px) minmax(0, 1fr) 30px !important;
+    gap: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-drag { grid-column: 1 !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-advanced-check { grid-column: 2 !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-advanced-logic { grid-column: 3 !important; }
+  [data-r34mf-root="subscriptions"] .r34mf-group-title { grid-column: 4 !important; min-width: 0; }
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-advanced-menu-toggle { grid-column: 5 !important; }
+
+  /* Add Rule / Add Group stay part of the scrollable editor instead of becoming
+     a detached sticky strip with an empty region underneath it. */
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-actions {
+    position: static !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    margin-top: 4px;
+    padding: 0 !important;
+    background: transparent !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-actions .r34mf-filter-button {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 8px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-modal-advanced .r34mf-modal-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 9px 10px max(9px, env(safe-area-inset-bottom));
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-draft-note {
+    flex: 1 1 100%;
+  }
+
+  /* Compact normal numeric/date child editors instead of forcing desktop tracks
+     to stay on one line. */
+  [data-r34mf-root="subscriptions"] .r34mf-modal:not(.r34mf-modal-advanced) .r34mf-range-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-modal:not(.r34mf-modal-advanced) .r34mf-range-inputs > .r34mf-filter-input {
+    flex: 1 1 92px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-modal:not(.r34mf-modal-advanced) .r34mf-range-inputs > .r34mf-filter-select {
+    flex: 1 1 112px;
+    min-width: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-date-picker {
+    max-width: calc(100vw - 16px);
+  }
+
+  /* Duplicates can still wrap naturally on phone, but its tiny amount fields no
+     longer reserve desktop-sized placeholder space. */
+  [data-r34mf-root="subscriptions"] .r34mf-duplicate-row {
+    flex-wrap: wrap !important;
+    gap: 7px 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  [data-r34mf-root="subscriptions"] .r34mf-filters-surface { padding: 8px; }
+  [data-r34mf-root="subscriptions"] .r34mf-filter-columns { gap: 0 6px; }
+  [data-r34mf-root="subscriptions"] .r34mf-filter-column .r34mf-filter-row-main { font-size: 10px; }
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-rule-primary,
+  [data-r34mf-root="subscriptions"] .r34mf-group-header {
+    grid-template-columns: 20px 20px minmax(56px, 68px) minmax(0, 1fr) 28px !important;
+  }
+}

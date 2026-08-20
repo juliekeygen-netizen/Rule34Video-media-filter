@@ -1,0 +1,270 @@
+/* Final Filters/Advanced geometry follow-up. Loaded after mobile-followup.css. */
+[data-r34mf-root="subscriptions"] .r34mf-filter-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0 12px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-column {
+  min-width: 0;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-column .r34mf-filter-section {
+  white-space: nowrap;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-column-detailed > .r34mf-filter-row[data-filter-source="advanced"] {
+  margin-top: 3px;
+}
+
+/* The visual sort direction lives in the right-side chevron. Keeping it
+   absolutely positioned means the text can remain genuinely centered. */
+[data-r34mf-root="subscriptions"] .r34mf-sort-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 36px;
+  padding-right: 36px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-sort-control::after {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin: 0;
+  transform-origin: center;
+  transition: transform var(--r34mf-transition-fast);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-sort-control.is-sort-desc::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-sort-control.is-sort-asc::after {
+  transform: translateY(-50%) rotate(225deg);
+}
+
+/* The Filters popover is deliberately measured from the left edge of Filters to
+   the right edge of Sort. These anchors still leave comfortable room for the
+   two-column parent without the oversized previous Sort control. */
+@media (min-width: 761px) {
+  [data-r34mf-root="subscriptions"] .r34mf-local-tools > [data-r34mf-action="filters"] {
+    flex: 0 0 132px;
+    width: 132px;
+    min-width: 132px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-local-tools > .r34mf-sort-control[data-r34mf-action="sort"] {
+    flex: 0 0 224px;
+    width: 224px;
+    min-width: 224px;
+  }
+}
+
+@media (max-width: 760px) {
+  [data-r34mf-root="subscriptions"] .r34mf-shell-summary {
+    display: none !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-shell-title {
+    white-space: nowrap;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-filters-surface,
+  [data-r34mf-root="subscriptions"] .r34mf-sort-surface {
+    overscroll-behavior-y: auto !important;
+    touch-action: pan-y;
+  }
+
+  /* Do not rely on the older named desktop grid for phone rule editors. Explicit
+     rows make Match/Exclude, condition and value each span the entire card. */
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-rule-primary {
+    display: grid !important;
+    grid-template-columns: 22px 22px minmax(62px, 78px) minmax(0, 1fr) 30px !important;
+    grid-template-areas: none !important;
+    column-gap: 7px;
+    row-gap: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-drag {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-check {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-logic {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+  }
+
+  /* The shared select reserves desktop-sized arrow padding. On the narrow logic
+     track that could clip AND to "AN". Keep the same arrow, but compact its
+     padding/position so both AND and OR stay fully readable. */
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-logic .r34mf-filter-select {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-left: 8px !important;
+    padding-right: 24px !important;
+    background-position:
+      calc(100% - 13px) 15px,
+      calc(100% - 9px) 15px !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-field {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-menu-toggle {
+    grid-column: 5 !important;
+    grid-row: 1 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-polarity {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 1px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-condition {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-top: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-value,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.has-wide-value .r34mf-advanced-value,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-membership .r34mf-advanced-value,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-duplicates .r34mf-advanced-value {
+    grid-column: 1 / -1 !important;
+    grid-row: 4 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin-top: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-polarity > *,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-advanced-condition > * {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  /* Text-like editors and Artist/Uploader text modes are one full-width column.
+     This also makes Artist > Amount of place its comparator below the amount. */
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-text .r34mf-advanced-value,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-entityOrText .r34mf-advanced-value {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: stretch !important;
+    gap: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-text .r34mf-advanced-value > *,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-entityOrText .r34mf-advanced-value > * {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-date .r34mf-advanced-value {
+    display: block !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-date .r34mf-advanced-date-range {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule.is-date .r34mf-date-control {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-polarity .r34mf-filter-select,
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-condition .r34mf-filter-select {
+    min-width: 0 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-rule-secondary {
+    display: block !important;
+    width: 100%;
+    padding-left: 0 !important;
+    margin-top: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-rule-secondary .r34mf-text-options {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-rule-error {
+    margin: 7px 0 0 !important;
+  }
+
+  /* Keep the Group control strip to exactly one row; the ellipsis always owns
+     the final column instead of falling below the title. */
+  [data-r34mf-root="subscriptions"] .r34mf-group-header {
+    display: grid !important;
+    grid-template-columns: 22px 22px minmax(62px, 78px) minmax(0, 1fr) 30px !important;
+    grid-template-areas: none !important;
+    grid-auto-rows: auto;
+    align-items: center;
+    gap: 7px;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-drag {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-advanced-check {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-advanced-logic {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-title {
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-r34mf-root="subscriptions"] .r34mf-group-header > .r34mf-advanced-menu-toggle {
+    grid-column: 5 !important;
+    grid-row: 1 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  [data-r34mf-root="subscriptions"] .r34mf-advanced-rule .r34mf-rule-primary,
+  [data-r34mf-root="subscriptions"] .r34mf-group-header {
+    grid-template-columns: 20px 20px minmax(56px, 68px) minmax(0, 1fr) 28px !important;
+  }
+}

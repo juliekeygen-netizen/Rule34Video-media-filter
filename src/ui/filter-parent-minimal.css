@@ -1,0 +1,9 @@
+/* Parent filter rows intentionally show only the field label and disclosure arrow.
+   Configuration details live in the child editor, not as right-side summary copy. */
+[data-r34mf-root="subscriptions"] .r34mf-filter-row-main {
+  grid-template-columns: minmax(0, 1fr) 13px;
+}
+
+[data-r34mf-root="subscriptions"] .r34mf-filter-row-summary {
+  display: none !important;
+}
